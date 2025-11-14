@@ -23,3 +23,12 @@ Bu proje sevgilinle paylaştığın “ilk”leri sinematik bir arka plan ve pol
 - Düzenleme modunu kapatınca 📷 düğmeleri gizlenir; yeniden düzenlemek için butonu tekrar aç.
 
 Mutlu anıları bu sayfada biriktirdikten sonra dosyayı paylaşman yeterli 💛
+
+### JSON durumunu HTML'e yazdirma
+Kaydet butonundan indirdigin ilklerimiz-state.json dosyasindaki metin ve fotolari dogrudan index.html icine yazmak icin scripts/apply_state.js komut satiri aracini kullanabilirsin:
+
+1. Bilgisayarinda guncel bir Node.js (LTS) kurulumu oldugundan emin ol; komutta kullanilan `node` calisabilir durumdaki PATH icinde olmali.
+2. JSON dosyasini projenin kok klasorune kopyala veya komuta tam yolunu ver.
+3. Calistir: `node scripts/apply_state.js ilklerimiz-state.json`. Gerekirse hedef HTML dosyasini `--html` ile, farkli bir cikti dosyasini da `--out` ile belirleyebilirsin.
+4. `--dry-run` parametresi degisiklikleri raporlar ama dosya yazmaz; once kontrol etmek istiyorsan faydalidir.
+5. Islemin ardindan data-edit-key ve data-upload-key alanlari JSON icindeki metin ve gorsellerle guncellenmis olur, boylece dosyayi direkt deploy/push edebilirsin.
