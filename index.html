@@ -21,6 +21,8 @@
           <img id="intro-photo" class="intro-photo" data-upload-key="intro-photo" src="assets/intro.jpg" alt="Bizim fotoğrafımız" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 600\'><rect width=\'100%\' height=\'100%\' fill=\'#c1b5ae'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'22\' fill=\'#2f1f1b\'>assets/intro.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
           <button class="upload-btn" type="button" data-upload-key="intro-photo" aria-label="Fotoğraf yükle">📷</button>
         </div>
+        <button class="ghost-btn intro-bg-btn" id="intro-bg-upload" type="button">Arka Planı Değiştir</button>
+        <input type="file" id="intro-bg-input" accept="image/*" hidden />
         <div class="track-meta">
           <p class="track-title" data-editable data-edit-key="track-title">TRUE LOVE</p>
           <p class="track-artist" data-editable data-edit-key="track-artist">Love Story</p>
@@ -332,6 +334,10 @@
             </li>
           </ol>
         </div>
+        <section class="story-notes" aria-label="Duygu notları">
+          <h2 data-editable data-edit-key="notes-heading">Kalbimden Notlar</h2>
+          <p data-editable data-edit-key="notes-body">Buraya hissettiklerimi yazmak istiyorum. Her fotoğrafın bıraktığı sıcaklık bu satırlarda buluşsun.</p>
+        </section>
       </div>
     </main>
 

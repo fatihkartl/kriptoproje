@@ -6,6 +6,7 @@
   --accent: #b6495a;
   --accent-2: #f09d51;
   --shadow-soft: 0 20px 60px rgba(47, 31, 27, 0.2);
+  --intro-image: var(--hero-image);
 }
 
 * { box-sizing: border-box; }
@@ -36,6 +37,8 @@ body.intro-leaving .intro-card { animation: introSlide 0.8s forwards; }
 .site-header { padding: 28px 0 10px; }
 .header-flex { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .header-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.intro-bg-btn { display: none; }
+body.editing .intro-bg-btn { display: inline-flex; }
 .ghost-btn {
   border: 1px solid rgba(47,31,27,0.15);
   background: rgba(255,255,255,0.8);
@@ -79,7 +82,7 @@ body.editing [data-editable] { outline: 1px dashed rgba(47,31,27,0.35); outline-
 .intro-bg {
   position: absolute;
   inset: 0;
-  background-image: var(--hero-image);
+  background-image: var(--intro-image);
   background-size: cover;
   background-position: center;
   filter: blur(10px) brightness(0.5);
@@ -171,6 +174,16 @@ body.editing .upload-btn { opacity: 1; pointer-events: auto; }
 .lightbox[aria-hidden="false"] { display: flex; }
 .lightbox img { max-width: min(90vw, 1100px); max-height: 80vh; border-radius: 20px; box-shadow: 0 40px 90px rgba(0,0,0,0.55); }
 .lightbox-close { position: absolute; top: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; border: none; background: #fff; font-size: 24px; cursor: pointer; }
+
+.story-notes {
+  margin-top: 60px;
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: var(--shadow-soft);
+}
+.story-notes h2 { margin-top: 0; font-family: "Playfair Display", serif; font-size: 28px; }
+.story-notes p { margin: 12px 0 0; line-height: 1.7; color: #4b5563; }
 
 .site-footer { text-align: center; color: var(--muted); padding: 30px 0 50px; }
 

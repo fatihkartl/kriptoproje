@@ -59,6 +59,15 @@ async function storePhotoData(key, dataUrl) {
   }).catch(() => {});
 }
 
+function applyIntroBackground(url) {
+  const root = document.documentElement;
+  if (url) {
+    root.style.setProperty('--intro-image', `url("${url}")`);
+  } else {
+    root.style.removeProperty('--intro-image');
+  }
+}
+
 function setupIntro() {
   const audio = document.getElementById('bg-audio');
   const intro = document.getElementById('intro-screen');
@@ -158,6 +167,32 @@ function setupUploader() {
     };
     reader.readAsDataURL(file);
     fileInput.value = '';
+  });
+}
+
+function setupIntroBackgroundControl() {
+  const btn = document.getElementById('intro-bg-upload');
+  const input = document.getElementById('intro-bg-input');
+  if (!btn || !input) return;
+
+  readPhotoData('intro-background').then((stored) => {
+    if (stored) applyIntroBackground(stored);
+  });
+
+  btn.addEventListener('click', () => input.click());
+  input.addEventListener('change', () => {
+    const file = input.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const url = e.target?.result;
+      if (typeof url === 'string') {
+        applyIntroBackground(url);
+        await storePhotoData('intro-background', url);
+      }
+    };
+    reader.readAsDataURL(file);
+    input.value = '';
   });
 }
 
@@ -274,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEditing();
   setupLightbox();
   setupUploader();
+  setupIntroBackgroundControl();
   setupStateControls();
   setupYear();
 });
