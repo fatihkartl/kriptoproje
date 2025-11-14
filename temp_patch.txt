@@ -1,0 +1,50 @@
+*** Begin Patch
+*** Update File: script.js
+@@
+-let photoDBPromise;
+-
+-function openPhotoDB() {
++const PHOTO_STORAGE_PREFIX = 'photo:';
++let photoDBPromise;
++
++function photoStorageKey(key) {
++  return ${PHOTO_STORAGE_PREFIX};
++}
++
++function openPhotoDB() {
+@@
+-function loadPhotoFromDB(key) {
++function loadPhotoFromDB(key) {
+@@
+-function savePhotoToDB(key, data) {
++function savePhotoToDB(key, data) {
+@@
+-function setupUploader() {
++function setupUploader() {
+@@
+-  buttons.forEach(btn => {
+-    const key = btn.getAttribute('data-upload-key');
+-    loadPhotoFromDB(photo-).then(dbValue => {
+-      const stored = dbValue || localStorage.getItem(photo-);
++  buttons.forEach(btn => {
++    const key = btn.getAttribute('data-upload-key');
++    const storageKey = photoStorageKey(key);
++    loadPhotoFromDB(storageKey).then(dbValue => {
++      const stored = dbValue || localStorage.getItem(storageKey);
+@@
+-      const fallback = localStorage.getItem(photo-);
++      const fallback = localStorage.getItem(storageKey);
+@@
+-    const target = document.querySelector(img[data-upload-key=""]);
++    const target = document.querySelector(img[data-upload-key=""]);
+@@
+-        target.src = url;
+-        target.setAttribute('data-full', url);
+-        localStorage.setItem(photo-, url);
+-        savePhotoToDB(photo-, url);
++        target.src = url;
++        target.setAttribute('data-full', url);
++        const storageKey = photoStorageKey(currentKey);
++        localStorage.setItem(storageKey, url);
++        savePhotoToDB(storageKey, url);
+*** End Patch

@@ -1,0 +1,351 @@
+﻿<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bizim İlklerimiz — Aşk Galerisi</title>
+    <meta name="description" content="Birlikte yaşadığımız ilklerin sıcak hatıra akışı." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>❤</text></svg>" />
+  </head>
+  <body class="editing intro-active">
+    <audio id="bg-audio" loop preload="auto" src="assets/müzik.mp3"></audio>
+
+    <section id="intro-screen" class="intro-screen" aria-label="Giriş ekranı">
+      <div class="intro-bg"></div>
+      <div class="intro-card">
+        <div class="upload-wrap">
+          <img id="intro-photo" class="intro-photo" data-upload-key="intro-photo" src="assets/intro.jpg" alt="Bizim fotoğrafımız" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 600\'><rect width=\'100%\' height=\'100%\' fill=\'#c1b5ae'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'22\' fill=\'#2f1f1b\'>assets/intro.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+          <button class="upload-btn" type="button" data-upload-key="intro-photo" aria-label="Fotoğraf yükle">📷</button>
+        </div>
+        <div class="track-meta">
+          <p class="track-title" data-editable data-edit-key="track-title">TRUE LOVE</p>
+          <p class="track-artist" data-editable data-edit-key="track-artist">Love Story</p>
+        </div>
+        <div class="fake-progress">
+          <span data-editable data-edit-key="track-time-current">01:12</span>
+          <span data-editable data-edit-key="track-time-total">04:10</span>
+        </div>
+        <div class="intro-controls" aria-hidden="true">
+          <button class="icon-btn" type="button">&#x1F500;</button>
+          <button class="icon-btn" type="button">&#x23EE;</button>
+          <button id="intro-play" class="play-btn" type="button" aria-label="Müziği başlat ve devam et">▶</button>
+          <button class="icon-btn" type="button">&#x23ED;</button>
+          <button class="icon-btn" type="button">&#x1F501;</button>
+        </div>
+      </div>
+    </section>
+
+    <header class="site-header">
+      <div class="container header-flex">
+        <div>
+          <span class="brand" data-editable data-edit-key="brand-title">Bizim İlklerimiz</span>
+          <p class="mini" data-editable data-edit-key="brand-subtitle">Birlikte geçen her an bir hazine…</p>
+        </div>
+        <div class="header-actions">
+          <button id="save-state" class="ghost-btn" type="button">Kaydet</button>
+          <button id="load-state" class="ghost-btn" type="button">Yükle</button>
+          <input type="file" id="load-input" accept="application/json" hidden />
+          <button id="edit-toggle" class="edit-toggle" aria-pressed="true">Düzenleme Modu: Açık</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="hero" style="--hero-image: url('assets/hero.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <p class="eyebrow" data-editable data-edit-key="hero-eyebrow">Bizim İlklerimiz</p>
+          <h1 data-editable data-edit-key="hero-heading">Birlikte geçen her an bir hazine</h1>
+          <p class="lede" data-editable data-edit-key="hero-lede">“İlk buluşma, ilk kahve, ilk yolculuk… Hepsi bu polaroidlerin içinde saklı.”</p>
+        </div>
+
+        <div class="timeline">
+          <span class="timeline-line" aria-hidden="true"></span>
+          <ol class="timeline-feed" aria-label="İlkler galeri listesi">
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m01">KASIM</span><span class="day" data-editable data-edit-key="d01">26</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-01" data-upload-key="photo-01" src="assets/sample01.jpg" data-full="assets/sample01.jpg" alt="İlk buluşmamız" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample01.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-01" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c01">İlk Buluşmamız</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m02">ARALIK</span><span class="day" data-editable data-edit-key="d02">15</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-02" data-upload-key="photo-02" src="assets/sample02.jpg" data-full="assets/sample02.jpg" alt="İlk sinema" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample02.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-02" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c02">İlk Sinema</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m03">OCAK</span><span class="day" data-editable data-edit-key="d03">01</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-03" data-upload-key="photo-03" src="assets/sample03.jpg" data-full="assets/sample03.jpg" alt="Yeni yıl kutlaması" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample03.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-03" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c03">Yeni Yıl Kutlaması</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m04">ŞUBAT</span><span class="day" data-editable data-edit-key="d04">10</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-04" data-upload-key="photo-04" src="assets/sample04.jpg" data-full="assets/sample04.jpg" alt="İlk seyahat" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample04.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-04" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c04">İlk Seyahatimiz</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m05">MART</span><span class="day" data-editable data-edit-key="d05">05</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-05" data-upload-key="photo-05" src="assets/sample05.jpg" data-full="assets/sample05.jpg" alt="İlk konser" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample05.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-05" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c05">İlk Konserimiz</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m06">MART</span><span class="day" data-editable data-edit-key="d06">22</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-06" data-upload-key="photo-06" src="assets/sample06.jpg" data-full="assets/sample06.jpg" alt="Yağmur altında yürüyüş" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample06.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-06" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c06">Yağmur Altında Yürüyüş</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m07">NİSAN</span><span class="day" data-editable data-edit-key="d07">02</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-07" data-upload-key="photo-07" src="assets/sample07.jpg" data-full="assets/sample07.jpg" alt="İlk piknik" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample07.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-07" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c07">Piknikte Kahkaha</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m08">NİSAN</span><span class="day" data-editable data-edit-key="d08">18</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-08" data-upload-key="photo-08" src="assets/sample08.jpg" data-full="assets/sample08.jpg" alt="Film maratonu" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample08.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-08" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c08">Film Maratonu</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m09">MAYIS</span><span class="day" data-editable data-edit-key="d09">01</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-09" data-upload-key="photo-09" src="assets/sample09.jpg" data-full="assets/sample09.jpg" alt="İlk dans" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample09.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-09" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c09">İlk Dansımız</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m10">MAYIS</span><span class="day" data-editable data-edit-key="d10">20</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-10" data-upload-key="photo-10" src="assets/sample10.jpg" data-full="assets/sample10.jpg" alt="Güneş doğumu" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample10.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-10" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c10">Güneş Doğumu</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m11">HAZİRAN</span><span class="day" data-editable data-edit-key="d11">07</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-11" data-upload-key="photo-11" src="assets/sample11.jpg" data-full="assets/sample11.jpg" alt="İlk kamp" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample11.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-11" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c11">İlk Kamp</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m12">HAZİRAN</span><span class="day" data-editable data-edit-key="d12">28</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-12" data-upload-key="photo-12" src="assets/sample12.jpg" data-full="assets/sample12.jpg" alt="Sahil günü" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample12.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-12" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c12">Sahil Günü</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m13">TEMMUZ</span><span class="day" data-editable data-edit-key="d13">11</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-13" data-upload-key="photo-13" src="assets/sample13.jpg" data-full="assets/sample13.jpg" alt="İlk sürpriz" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample13.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-13" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c13">İlk Sürpriz</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m14">AĞUSTOS</span><span class="day" data-editable data-edit-key="d14">03</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-14" data-upload-key="photo-14" src="assets/sample14.jpg" data-full="assets/sample14.jpg" alt="Doğum günü" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample14.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-14" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c14">Doğum Günü Kutlaması</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m15">AĞUSTOS</span><span class="day" data-editable data-edit-key="d15">24</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-15" data-upload-key="photo-15" src="assets/sample15.jpg" data-full="assets/sample15.jpg" alt="İlk hediye" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample15.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-15" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c15">İlk Hediyem</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m16">EYLÜL</span><span class="day" data-editable data-edit-key="d16">09</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-16" data-upload-key="photo-16" src="assets/sample16.jpg" data-full="assets/sample16.jpg" alt="Fotoğraf sergisi" loading="lazy" onerror="this.onerror.null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample16.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-16" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c16">Fotoğraf Sergisi</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m17">EYLÜL</span><span class="day" data-editable data-edit-key="d17">25</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-17" data-upload-key="photo-17" src="assets/sample17.jpg" data-full="assets/sample17.jpg" alt="Kontrolsüz kahkaha" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample17.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-17" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c17">Kontrolsüz Kahkaha</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m18">EKİM</span><span class="day" data-editable data-edit-key="d18">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-18" data-upload-key="photo-18" src="assets/sample18.jpg" data-full="assets/sample18.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample18.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-18" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c18">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m19">EKİM</span><span class="day" data-editable data-edit-key="d19">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-19" data-upload-key="photo-19" src="assets/sample19.jpg" data-full="assets/sample19.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample19.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-19" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c19">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m20">EKİM</span><span class="day" data-editable data-edit-key="d20">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-20" data-upload-key="photo-20" src="assets/sample20.jpg" data-full="assets/sample20.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample20.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-20" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c20">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m21">EKİM</span><span class="day" data-editable data-edit-key="d21">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-21" data-upload-key="photo-21" src="assets/sample21.jpg" data-full="assets/sample21.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample21.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-21" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c21">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m22">EKİM</span><span class="day" data-editable data-edit-key="d22">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-22" data-upload-key="photo-22" src="assets/sample22.jpg" data-full="assets/sample22.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample22.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-22" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c22">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item left">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m23">EKİM</span><span class="day" data-editable data-edit-key="d23">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-23" data-upload-key="photo-23" src="assets/sample23.jpg" data-full="assets/sample23.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample23.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-23" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c23">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+            <li class="timeline-item right">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card polaroid">
+                <div class="tag"><span class="month" data-editable data-edit-key="m24">EKİM</span><span class="day" data-editable data-edit-key="d24">12</span></div>
+                <figure class="upload-wrap">
+                  <img id="photo-24" data-upload-key="photo-24" src="assets/sample24.jpg" data-full="assets/sample24.jpg" alt="Gün batımı" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><rect width=\'100%\' height=\'100%\' fill=\'#f7ebe1'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Poppins\' font-size=\'18\' fill=\'#b6495a\'>assets/sample24.jpg ekleyin</text></svg>'; this.dataset.full=this.src" />
+                  <button class="upload-btn" type="button" data-upload-key="photo-24" aria-label="Fotoğraf yükle">📷</button>
+                  <figcaption data-editable data-edit-key="c24">Gün Batımı</figcaption>
+                </figure>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Kapat">×</button>
+      <img id="lightbox-img" alt="Büyük fotoğraf" />
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p data-editable data-edit-key="footer-note">Sevgiyle tasarlandı • <span id="year"></span></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
